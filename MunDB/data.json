@@ -1,0 +1,32 @@
+[
+  {
+    "id": "mine-ap-pmn",
+    "name": "PMN",
+    "localName": "ПМН",
+    "country": "URSS / Russie",
+    "category": "Mines terrestres",
+    "subCategory": "Anti-personnel",
+    "weight": "550 g",
+    "dimensions": "110mm x 53mm",
+    "fill": "200 g TNT",
+    "fuze": "Intégrée (pression)",
+    "description": "Mine anti-personnel à pression, souvent appelée 'Black Widow'. Corps en bakélite noire ou verte. Très répandue sur le théâtre ukrainien.",
+    "warning": "DANGER EXTRÊME : Très sensible. Ne pas manipuler. Effet de souffle dévastateur.",
+    "tags": ["Bakélite", "Pression", "AP", "Blast"]
+  },
+  {
+    "id": "mine-ac-tm62m",
+    "name": "TM-62M",
+    "localName": "ТМ-62М",
+    "country": "URSS / Russie",
+    "category": "Mines terrestres",
+    "subCategory": "Anti-char",
+    "weight": "9.5 kg",
+    "dimensions": "320mm x 128mm",
+    "fill": "7.5 kg TNT/RDX",
+    "fuze": "MVCh-62 / MVP-62",
+    "description": "Mine antichar métallique circulaire. Utilisée massivement avec divers types d'allumeurs.",
+    "warning": "Risque de dispositifs anti-manipulation. Masse métallique importante.",
+    "tags": ["Métallique", "Antichar", "AC"]
+  }
+]

@@ -1,0 +1,15 @@
+{
+  "id": "mine-ap-pmn",
+  "name": "PMN",
+  "localName": "ПМН",
+  "country": "URSS / Russie",
+  "category": "Mines",
+  "subCategory": "Anti-Personnel",
+  "weight": "550 g",
+  "dimensions": "110mm x 53mm",
+  "fill": "200 g TNT",
+  "fuze": "Intégrée (pression)",
+  "description": "Mine anti-personnel à pression, souvent appelée 'Black Widow'. Corps en bakélite noire ou verte. Très répandue sur le théâtre ukrainien.",
+  "warning": "DANGER EXTRÊME : Très sensible. Ne pas manipuler. Effet de souffle dévastateur.",
+  "tags": ["Bakélite", "Pression", "AP", "Blast"]
+}
