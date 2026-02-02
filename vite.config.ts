@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   plugins: [react()],
-  base: './', // Crucial pour GitHub Pages pour que les chemins soient relatifs
+  base: '/identif_munex/', // Crucial pour GitHub Pages pour que les chemins soient relatifs
   server: {
     open: true
   },
