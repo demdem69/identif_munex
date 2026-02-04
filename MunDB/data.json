@@ -1003,6 +1003,21 @@
   "description": "Mine AC Chenille de forme cylindrique en tôle emboutie de couleur vert armée. Poignée de transport métallique articulée et marquage rouge et à froid sur la base de la mine indiquant 'MINE ATK MK 7'. Une alvéole de piégeage au dessous. ",
   "warning": "",
   "tags": ["AC", "AC Chenille"]
+  },
+  {
+  "id": "isis-mk3",
+  "name": "DAESH-AC-N°2",
+  "localName": "",
+  "country": "IRAK / EI",
+  "category": "Mines terrestres",
+  "subCategory": "AC Chenille",
+  "weight": "≈8.2 kg",
+  "dimensions": "≈280 mm (diamètre) ",
+  "fill": "HME : 3.2 kg Ammonal ou Anal",
+  "fuze": "A pression à cisaillement de goupille.",
+  "description": "Mine AC Chenille artisanale en matière plastique de couleur sable et marron clair..",
+  "warning": "Pas de Désarmement possible (HME) : DSP ou TAD + DEST en fouille de proximité.",
+  "tags": ["AC", "AC Chenille"]
   }
 
 ]
