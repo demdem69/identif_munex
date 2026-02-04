@@ -855,7 +855,7 @@
   "tags": ["AC", "AC Chenille"]
   },
   {
-  "id": "type-72-metal",
+  "id": "type-72-sp",
   "name": "Type-72-SP",
   "localName": "",
   "country": "Chine",
@@ -955,10 +955,25 @@
   "dimensions": "≈306 mm (diamètre) ",
   "fill": "Explosif brisant : 6.5 kg TNT",
   "fuze": "Allumeur à pression P4-MK1.",
-  "description": "Mine AC Chenille. Corps en plastique de couleur vert armée, grise ou sable avec une poignée de portage latérale. Possède une marquage jaune sur le côté et le dessous. Version P2-MK1 carrée.",
+  "description": "Mine AC Chenille. Corps en plastique cylindrique de couleur vert armée, grise ou sable avec une poignée de portage latérale. Possède une marquage jaune sur le côté et le dessous.",
   "warning": "",
   "tags": ["AC", "AC Chenille"]
-  },
+  },  
+  {
+  "id": "p2-mk2-av",
+  "name": "P2 MK1",
+  "localName": "",
+  "country": "Pakistan",
+  "category": "Mines terrestres",
+  "subCategory": "AC Chenille",
+  "weight": "≈7.3 kg",
+  "dimensions": "≈306 mm (diamètre) ",
+  "fill": "Explosif brisant : 6.5 kg TNT",
+  "fuze": "Allumeur à pression P4-MK1.",
+  "description": "Mine AC Chenille. Corps en plastique carré de couleur vert armée, grise ou sable avec une poignée de portage latérale. Possède une marquage jaune sur le côté et le dessous. Version P2-MK1 carrée.",
+  "warning": "",
+  "tags": ["AC", "AC Chenille"]
+  }
   {
   "id": "m15",
   "name": "M-15",
@@ -1005,7 +1020,7 @@
   "tags": ["AC", "AC Chenille"]
   },
   {
-  "id": "isis-mk3",
+  "id": "isis-mk3-improvised",
   "name": "DAESH-AC-N°2",
   "localName": "",
   "country": "IRAK / EI",
