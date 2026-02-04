@@ -988,6 +988,21 @@
   "description": "Mine AC Chenille. Corps carré en plastique de couleur vert armée. Plateau de pression circulaire très large avec un bouton d'armement à deux position: 'Safe', Armed'. Deux alvéoles de piégeages (latéral et de fond) ",
   "warning": "",
   "tags": ["AC", "AC Chenille"]
+  },
+  {
+  "id": "mk-7",
+  "name": "MK-7",
+  "localName": "",
+  "country": "",
+  "category": "Mines terrestres",
+  "subCategory": "AC Chenille",
+  "weight": "≈13.6 kg",
+  "dimensions": "≈330 mm (diamètre) ",
+  "fill": "Explosif brisant : 8.9 kg TNT",
+  "fuze": "Allumeur N°5 (double pression) ou L-93-A1 (antenne).",
+  "description": "Mine AC Chenille de forme cylindrique en tôle emboutie de couleur vert armée. Poignée de transport métallique articulée et marquage rouge et à froid sur la base de la mine indiquant 'MINE ATK MK 7'. Une alvéole de piégeage au dessous. ",
+  "warning": "",
+  "tags": ["AC", "AC Chenille"]
   }
 
 ]
