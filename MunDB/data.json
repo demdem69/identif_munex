@@ -942,7 +942,7 @@
   "fuze": "Allumeur à pression électronique à influence magnétique intégré.",
   "description": "Mine AC Ventrale à Haut Pouvoir de Destruction. Active pendant 30 jours après armement . Contient un dispositif d'anti-relèvement. Une coupure de courant pendant la période d'activité provoque le déclenchement.",
   "warning": "Ne pas toucher avant la fin de la période d'activité.",
-  "tags": ["AC", "AC ventrale"]
+  "tags": ["AC", "AC Ventrale"]
   },
   {
   "id": "p3-mk2",
@@ -972,22 +972,22 @@
   "fuze": "M-603 (pression) ou M-624 (basculement).",
   "description": "Mine AC Chenille. Corps en métal de couleurt vert olive munie d'une poignée de portage métallique située en dessous. Maraquage jaune sur sa circonférence. Deux alvéoles de piégeage (latérale et de fond). Trois positions pour le bouchon d'armement : 'safe', 'Danger' 'Armed'",
   "warning": "",
-  "tags": ["AC", "AC ventrale"]
+  "tags": ["AC", "AC Chenille"]
   },
   {
-  "id": "m15",
-  "name": "M-15",
+  "id": "m19",
+  "name": "M-19",
   "localName": "",
   "country": "Etats-Unis",
   "category": "Mines terrestres",
   "subCategory": "AC Chenille",
-  "weight": "≈13.6 kg",
+  "weight": "≈12.56 kg",
   "dimensions": "≈334 mm (diamètre) ",
-  "fill": "Explosif brisant : 10 kg composition B",
+  "fill": "Explosif brisant : 9.530 kg composition B",
   "fuze": "Type M-606.",
-  "description": "Mine AC Chenille. Corps carré en plastique de couleur vert armée. Plateau de pression circulaire ",
+  "description": "Mine AC Chenille. Corps carré en plastique de couleur vert armée. Plateau de pression circulaire très large avec un bouton d'armement à deux position: 'Safe', Armed'. Deux alvéoles de piégeages (latéral et de fond) ",
   "warning": "",
-  "tags": ["AC", "AC ventrale"]
+  "tags": ["AC", "AC Chenille"]
   }
 
 ]
