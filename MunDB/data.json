@@ -615,6 +615,36 @@
   "tags": ["AP","AP ZB"]
   },
   {
+  "id": "valmara-69",
+  "name": "VALMARA-69",
+  "localName": "",
+  "country": "Italie",
+  "category": "Mines terrestres",
+  "subCategory": "AP-ZB",
+  "weight": "≈3 kg",
+  "dimensions": "≈130*205 mm",
+  "fill": "Explosif brisant : 350 g tolite",
+  "fuze": "Traction/pression à retrait de billes intégré.",
+  "description": "Mine AP ZB belge. Caractérisée par son allumeur hémisphérique comprenant 5 antennes, l'antenne centrale possède un orifice pour y faire passer un fil à traction.",
+  "warning": "",
+  "tags": ["AP","AP ZB"]
+  },
+  {
+  "id": "mi-ap-mb-51-55",
+  "name": "MI-AP-MB-51/55",
+  "localName": "",
+  "country": "France",
+  "category": "Mines terrestres",
+  "subCategory": "AP-ZB",
+  "weight": "≈4 kg",
+  "dimensions": "≈100*160 mm",
+  "fill": "Explosif brisant : 400 g tolite",
+  "fuze": "AL-TR-PR-MT-54/58 ou AL-TR-PR-54 (traction/pression)",
+  "description": "Mine AP ZB française comportant quatre orifices sur la partie supérieure : 2 orifices de détonateur (mise de feu et autodestruction), 1 orifice de remplissage et 1 orifice pour l'allumeur.",
+  "warning": "",
+  "tags": ["AP","AP ZB"]
+  },
+  {
   "id": "pomz-2",
   "name": "POMZ-2",
   "localName": "",
