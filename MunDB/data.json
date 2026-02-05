@@ -585,6 +585,36 @@
   "tags": ["AP","AP ZB"]
   },
   {
+  "id": "m16a2",
+  "name": "M16-A2",
+  "localName": "",
+  "country": "Etats-Unis",
+  "category": "Mines terrestres",
+  "subCategory": "AP-ZB",
+  "weight": "≈3.620 kg",
+  "dimensions": "≈103*193 mm",
+  "fill": "Explosif brisant : 601 g tolite",
+  "fuze": "Type M-605 (traction/pression)",
+  "description": "Mine AP ZB américaine en forme de boite de conserve en tole de couleur noire ou vert armée avec un marquage jaune sur le côte. Allumeur excentré.",
+  "warning": "",
+  "tags": ["AP","AP ZB"]
+  },
+  {
+  "id": "no12",
+  "name": "N°12",
+  "localName": "",
+  "country": "Israël",
+  "category": "Mines terrestres",
+  "subCategory": "AP-ZB",
+  "weight": "≈3.5 kg",
+  "dimensions": "≈102*159 mm",
+  "fill": "Explosif brisant : 260 g tolite",
+  "fuze": "N°12 (traction/pression)",
+  "description": "Mine AP ZB israëlienne en acier de couleur vert foncé disposant de marquages blanc et d'une bande rouge. Munie de 3 bouchons : puit central (allumeur), puit latéral (détonateur) et orifice de remplissage.",
+  "warning": "",
+  "tags": ["AP","AP ZB"]
+  },
+  {
   "id": "pomz-2",
   "name": "POMZ-2",
   "localName": "",
