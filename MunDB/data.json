@@ -1123,6 +1123,51 @@
   "description": "Mine AC Chenille artisanale en matière plastique de couleur sable et marron clair..",
   "warning": "Pas de Désarmement possible (HME) : DSP ou TAD + DEST en fouille de proximité.",
   "tags": ["AC", "AC Chenille"]
+  },
+  {
+  "id": "vs-50",
+  "name": "VS-50",
+  "localName": "",
+  "country": "ITALIE",
+  "category": "Mines terrestres",
+  "subCategory": "AP LOC DISP",
+  "weight": "≈185 g",
+  "dimensions": "≈90 mm (diamètre) ",
+  "fill": "Explosif brisant : 40 g RDX/TNT",
+  "fuze": "A pression pneumatique antichoc intégré.",
+  "description": "Mine AP LOC dispersable en matière plastique de couleur vert armée ou sable avec un plateau de pression noir. Possède 12 nervures radiales verticales. Peut être posée manuellement (goupille de sécurité) ou dipersée (coiffe de sécurité).",
+  "warning": "Peut être équipé du système abti-relevage électronique VSAR-4.",
+  "tags": ["AC", "AC LOC", "AP DISPERSABLE"]
+  },
+  {
+  "id": "ts-50",
+  "name": "TS-50",
+  "localName": "",
+  "country": "ITALIE",
+  "category": "Mines terrestres",
+  "subCategory": "AP LOC DISP",
+  "weight": "≈185 g",
+  "dimensions": "≈90 mm (diamètre) ",
+  "fill": "Explosif brisant : 40 g RDX/TNT",
+  "fuze": "A pression pneumatique antichoc intégré.",
+  "description": "Mine AP LOC dispersable en matière plastique de couleur vert armée ou sable avec un plateau de pression assorti à la mine. Possède 12 nervures radiales verticales. Peut être posée manuellement (goupille de sécurité) ou dipersée (coiffe de sécurité",
+  "warning": "Peut être équipé du système abti-relevage électronique VSAR-4.",
+  "tags": ["AC", "AC LOC", "AP DISPERSABLE"]
+  },
+  {
+  "id": "pfm-1",
+  "name": "PFM-1/1S",
+  "localName": "",
+  "country": "RUSSIE",
+  "category": "Mines terrestres",
+  "subCategory": "AP LOC DISP",
+  "weight": "≈70 g",
+  "dimensions": "≈120*66*19 mm",
+  "fill": "Explosif brisant : 35 g VS-6D",
+  "fuze": "A pression de type VGM 572 ou VGMS 572.",
+  "description": "Mine AP LOC dispersable asymétrique russe. Explosif liquide contenu dans le bulbe et allumeur à pression continue au centre. La PFM-1S s'autodétruit après un délai de 8 à 70h et possède un 'C' sur sur la partie inférieure. Destruction avec 50g d'explo au plus près.",
+  "warning": "Ne doit en aucun être manipulée. Ne peut être ni désamorcée ou ni désarmée. ATTENTION : autodestruction.",
+  "tags": ["AC", "AC LOC", "AP DISPERSABLE"]
   }
 
 ]
