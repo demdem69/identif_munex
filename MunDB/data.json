@@ -5,14 +5,14 @@
     "localName": "АО-1СЧ",
     "country": "URSS / Russie",
     "category": "Sous-munitions",
-    "subCategory": "Fragmentation",
+    "subCategory": "AP",
     "weight": "≈1 kg",
     "dimensions": "≈70 mm",
     "fill": "Explosif brisant",
-    "fuze": "Impact",
+    "fuze": "Impact par refoulement",
     "description": "Petite sous-munition soviétique à fragmentation destinée à la neutralisation du personnel.",
     "warning": "DANGER : Risque de non-explosion et de restes explosifs.",
-    "tags": ["Fragmentation", "Personnel"]
+    "tags": ["Fragmentation", "AP"]
   },
   {
     "id": "ao-25-rtrtm",
@@ -20,14 +20,14 @@
     "localName": "АО-2,5РТ",
     "country": "URSS / Russie",
     "category": "Sous-munitions",
-    "subCategory": "Fragmentation",
+    "subCategory": "AP",
     "weight": "2.5 kg",
     "dimensions": "≈100 mm",
     "fill": "Explosif brisant",
-    "fuze": "Impact",
+    "fuze": "Impact (AWF)",
     "description": "Sous-munition à fragmentation largement employée dans les bombes à sous-munitions soviétiques.",
     "warning": "DANGER : UXO fréquent.",
-    "tags": ["Fragmentation", "Personnel"]
+    "tags": ["Fragmentation", "AP"]
   },
   {
     "id": "ptab-25m",
@@ -35,14 +35,14 @@
     "localName": "ПТАБ-2,5М",
     "country": "URSS / Russie",
     "category": "Sous-munitions",
-    "subCategory": "Anti-blindage",
+    "subCategory": "AC",
     "weight": "2.5 kg",
     "dimensions": "≈100 mm",
     "fill": "Charge creuse",
-    "fuze": "Impact",
+    "fuze": "Impact par refoulement (PIBD)",
     "description": "Sous-munition antichar à charge creuse conçue pour attaquer les blindages supérieurs.",
     "warning": "DANGER : capacité de perforation élevée.",
-    "tags": ["HEAT", "Antichar"]
+    "tags": ["HEAT", "AC"]
   },
   {
     "id": "ptab-25ko",
@@ -50,14 +50,14 @@
     "localName": "ПТАБ-2,5КО",
     "country": "URSS / Russie",
     "category": "Sous-munitions",
-    "subCategory": "Anti-blindage",
+    "subCategory": "AP-AV",
     "weight": "2.5 kg",
     "dimensions": "≈100 mm",
-    "fill": "Charge creuse",
-    "fuze": "Impact",
-    "description": "Variante améliorée de PTAB avec pénétration accrue.",
+    "fill": "",
+    "fuze": "Impact par inertie",
+    "description": "Autodestruction entre 20 et 60s.",
     "warning": "",
-    "tags": ["HEAT", "Antichar"]
+    "tags": ["HEAT", "AP-AV"]
   },
   {
     "id": "shoab-05",
@@ -65,11 +65,11 @@
     "localName": "ШОАБ-0,5",
     "country": "URSS / Russie",
     "category": "Sous-munitions",
-    "subCategory": "Fragmentation",
+    "subCategory": "AP",
     "weight": "0.5 kg",
     "dimensions": "≈60 mm",
     "fill": "Explosif brisant",
-    "fuze": "Impact",
+    "fuze": "Impact mécanique (AWF)",
     "description": "Petite sous-munition à effet de souffle et fragmentation.",
     "warning": "DANGER : Très dispersée.",
     "tags": ["Fragmentation"]
@@ -84,9 +84,9 @@
     "weight": "≈1.8 kg",
     "dimensions": "≈90 mm",
     "fill": "Explosif brisant",
-    "fuze": "Impact",
-    "description": "Sous-munition utilisée notamment dans les roquettes Smerch.",
-    "warning": "DANGER : Large rayon de dispersion.",
+    "fuze": "Impact par refoulement",
+    "description": "Sous-munition utilisée notamment dans les roquettes Smerch. Autodestruction à 90s.",
+    "warning": "DANGER : Autodestruction à 90s.",
     "tags": ["Fragmentation"]
   },
   {
@@ -95,14 +95,14 @@
     "localName": "3Б30",
     "country": "URSS / Russie",
     "category": "Sous-munitions",
-    "subCategory": "Fragmentation",
+    "subCategory": "AP",
     "weight": "≈1.7 kg",
     "dimensions": "≈90 mm",
     "fill": "Explosif brisant",
     "fuze": "Impact",
     "description": "Sous-munition de type personnel utilisée dans des systèmes à roquettes.",
     "warning": "DANGER : UXO fréquent.",
-    "tags": ["Fragmentation"]
+    "tags": ["AP"]
   },
   {
     "id": "mk-118-rockeye",
@@ -110,44 +110,44 @@
     "localName": "",
     "country": "États-Unis",
     "category": "Sous-munitions",
-    "subCategory": "Anti-blindage",
+    "subCategory": "AC",
     "weight": "≈600 g",
     "dimensions": "≈70 mm",
     "fill": "Charge creuse",
-    "fuze": "Impact",
+    "fuze": "Impact par inertie",
     "description": "Sous-munition HEAT utilisée dans la bombe Rockeye.",
     "warning": "DANGER : Pénétration blindage.",
-    "tags": ["HEAT", "Antichar"]
+    "tags": ["HEAT", "AC"]
   },
   {
     "id": "blu-97",
-    "name": "BLU-97/B/AB",
+    "name": "BLU-97 B/AB",
     "localName": "",
     "country": "États-Unis",
     "category": "Sous-munitions",
-    "subCategory": "Polyvalente",
+    "subCategory": "AP/INC",
     "weight": "≈1.54 kg",
     "dimensions": "≈200 mm",
-    "fill": "Charge creuse + fragmentation",
-    "fuze": "Impact",
+    "fill": "Charge creuse + fragmentation ou INC",
+    "fuze": "Impact piezo-électrique et à inertie (AWF)",
     "description": "Sous-munition combinant effets antichar, fragmentation et incendiaire.",
     "warning": "DANGER EXTRÊME : UXO courant.",
-    "tags": ["HEAT", "Fragmentation", "Incendiaire"]
+    "tags": ["HEAT", "AP", "INC"]
   },
   {
     "id": "blu-86",
-    "name": "BLU-86/B/AB",
+    "name": "BLU-86 B/AB",
     "localName": "",
     "country": "États-Unis",
     "category": "Sous-munitions",
-    "subCategory": "Fragmentation",
+    "subCategory": "AP/INC",
     "weight": "≈1.3 kg",
     "dimensions": "≈180 mm",
     "fill": "Explosif brisant",
-    "fuze": "Impact",
+    "fuze": "Impact (AWF)",
     "description": "Sous-munition à fragmentation pour usage antipersonnel.",
     "warning": "",
-    "tags": ["Fragmentation"]
+    "tags": ["AP"]
   },
   {
     "id": "m42",
@@ -155,14 +155,14 @@
     "localName": "",
     "country": "États-Unis",
     "category": "Sous-munitions",
-    "subCategory": "Dual-Purpose",
+    "subCategory": "AP-AV",
     "weight": "≈0.59 kg",
     "dimensions": "≈65 mm",
     "fill": "Charge creuse",
-    "fuze": "Impact",
-    "description": "Sous-munition DPICM à effet antichar léger et antipersonnel.",
+    "fuze": "Impact par inertie",
+    "description": "Sous-munition DPICM à effet antivéhicule et antipersonnel.",
     "warning": "DANGER : UXO fréquent.",
-    "tags": ["HEAT", "Fragmentation"]
+    "tags": ["AP-AV"]
   },
   {
     "id": "m85",
@@ -279,7 +279,7 @@
     "weight": "≈348g",
     "dimensions": "≈100 mm",
     "fill": "Explosif brisant : 188g tolite",
-    "fuze": "Pression",
+    "fuze": "N°4 (pression)",
     "description": "Mine antipersonnel LOC de conception israélienne.",
     "warning": "DANGER : sensible.",
     "tags": ["AP"]
@@ -294,7 +294,7 @@
     "weight": "≈348g g",
     "dimensions": "≈100 mm",
     "fill": "Explosif brisant : 188g tolite",
-    "fuze": "Pression",
+    "fuze": "N°4 (trction/pression)",
     "description": "Mine antipersonnel LOC de conception israélienne.",
     "warning": "DANGER : sensible.",
     "tags": ["AP"]
@@ -309,7 +309,7 @@
     "weight": "≈450 g",
     "dimensions": "≈85 mm",
     "fill": "Explosif brisant",
-    "fuze": "Pression",
+    "fuze": "N°10",
     "description": "Mine antipersonnel de conception israélienne.",
     "warning": "",
     "tags": ["AP"]
