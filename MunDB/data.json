@@ -1219,7 +1219,7 @@
   "name": "MS-3",
   "localName": "",
   "country": "RUSSIE",
-  "category": "Dispositif de piégeage",
+  "category": "Dispositifs de piégeage",
   "subCategory": "",
   "weight": "≈700 g",
   "dimensions": "≈110 mm",
@@ -1227,14 +1227,14 @@
   "fuze": "A relachement de pression.",
   "description": "Dispo de piégeage se différenciant de la PMN par sa protubérance au centre du plateau de pression. Souvent utilisé pour piéger une OZM-72 ou tout autre objet d'un poids minimum de 5kg.",
   "warning": "Ce dispositif ne peut être ni désarmé, ni désamorcé par un EOC. CR et DSP sur ordre.",
-  "tags": ["Dispositif de piégeage"]
+  "tags": ["Dispositifs de piégeage"]
   },
   {
   "id": "ms-4",
   "name": "MS-4",
   "localName": "",
   "country": "RUSSIE",
-  "category": "Dispositif de piégeage",
+  "category": "Dispositifs de piégeage",
   "subCategory": "",
   "weight": "≈410 g",
   "dimensions": "≈159*92*31 mm",
@@ -1242,14 +1242,14 @@
   "fuze": "Electrique anti-dérangement et à retard.",
   "description": "Dispo de piégeage pour mines AC ou AP. Sert également de dispositif d'amorçage pour charges de destruction. Modes vibration (mouvement), inclinaison (>20°) ou retard (15min à 360h). ",
   "warning": "Ce dispositif ne peut être ni désarmé, ni désamorcé par un EOC. CR et DSP sur ordre.",
-  "tags": ["Dispositif de piégeage"]
+  "tags": ["Dispositifs de piégeage"]
   },
   {
   "id": "ml-7",
   "name": "ML-7",
   "localName": "",
   "country": "RUSSIE",
-  "category": "Dispositif de piégeage",
+  "category": "Dispositifs de piégeage",
   "subCategory": "",
   "weight": "≈100 g",
   "dimensions": "≈72*69*30 mm",
@@ -1257,14 +1257,14 @@
   "fuze": "A relachement de pression type VGM1S modifié.",
   "description": "Dispo de piégeage pour mines AC, AP ou tout autre objet de plus de 300g. ",
   "warning": "Ce dispositif ne peut être ni désarmé, ni désamorcé par un EOC. CR et DSP sur ordre.",
-  "tags": ["Dispositif de piégeage"]
+  "tags": ["Dispositifs de piégeage"]
   },
   {
   "id": "ml-8",
   "name": "ML-8",
   "localName": "",
   "country": "RUSSIE",
-  "category": "Dispositif de piégeage",
+  "category": "Dispositifs de piégeage",
   "subCategory": "",
   "weight": "≈370 g",
   "dimensions": "≈114*60*40 mm",
@@ -1272,14 +1272,14 @@
   "fuze": "A relachement de pression type VGM1S modifié.",
   "description": "Dispo de piégeage pour mines AC, AP ou tout autre objet de plus de 250g. ",
   "warning": "Ce dispositif ne peut être ni désarmé, ni désamorcé par un EOC. CR et DSP sur ordre.",
-  "tags": ["Dispositif de piégeage"]
+  "tags": ["Dispositifs de piégeage"]
   },
   {
   "id": "ro-4",
   "name": "RO-4",
   "localName": "",
   "country": "TCHEQUIE",
-  "category": "Dispositif de piégeage",
+  "category": "Dispositifs de piégeage",
   "subCategory": "",
   "weight": "≈100 g",
   "dimensions": "≈72*69*30 mm",
@@ -1287,14 +1287,14 @@
   "fuze": "A relachement de pression mécanique.",
   "description": "Dispo de piégeage pour mines AC ou AP ou tout autre objet de plus de 2kg. ",
   "warning": "Ce dispositif ne peut être ni désarmé, ni désamorcé par un EOC. CR et DSP sur ordre.",
-  "tags": ["Dispositif de piégeage"]
+  "tags": ["Dispositifs de piégeage"]
   },
   {
   "id": "vsar-4",
   "name": "VSAR-4",
   "localName": "",
   "country": "ITALIE",
-  "category": "Dispositif de piégeage",
+  "category": "Dispositifs de piégeage",
   "subCategory": "",
   "weight": "≈125 g",
   "dimensions": "≈78 mm",
@@ -1302,7 +1302,7 @@
   "fuze": "Electronique anti-basculement / anti-soulèvement.",
   "description": "Dispo de piégeage pour mines VS-1.6, VS-2.2, VALMARA-69, VS-50 ou TS-50. ",
   "warning": "Ce dispositif ne peut être ni désarmé, ni désamorcé par un EOC. CR et DSP sur ordre.",
-  "tags": ["Dispositif de piégeage"]
+  "tags": ["Dispositifs de piégeage"]
   }
 
 ]
