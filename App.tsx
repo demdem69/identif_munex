@@ -102,11 +102,10 @@ const Home: React.FC<{ setView: (v: AppView) => void, stats: any }> = ({ setView
   <div className="space-y-16 py-12 animate-in">
     <div className="max-w-4xl">
       <h1 className="text-7xl lg:text-9xl font-black text-stone-100 tracking-tighter mb-8 leading-[0.85]">
-        EOD <span className="text-orange-600 italic">MASTER</span><br/>
-        V3 <span className="text-stone-800 uppercase tracking-tighter font-mono">Central</span>
+        IDENTIF <span className="text-orange-600 italic">MUNEX</span><br/>
       </h1>
       <p className="text-2xl text-stone-500 max-w-2xl leading-relaxed font-medium italic">
-        "Gestion unifiée. Vos données sont désormais centralisées pour une performance accrue."
+        "Base de données de munitions et mines pour entrainement à l'identification."
       </p>
     </div>
 
