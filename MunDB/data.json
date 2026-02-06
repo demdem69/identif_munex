@@ -1299,7 +1299,7 @@
   "weight": "≈125 g",
   "dimensions": "≈78 mm",
   "fill": "Explosif brisant",
-  "fuze": "A relachement de pression type VGM1S modifié.",
+  "fuze": "Electronique anti-basculement / anti-soulèvement.",
   "description": "Dispo de piégeage pour mines VS-1.6, VS-2.2, VALMARA-69, VS-50 ou TS-50. ",
   "warning": "Ce dispositif ne peut être ni désarmé, ni désamorcé par un EOC. CR et DSP sur ordre.",
   "tags": ["Dispositif de piégeage"]
