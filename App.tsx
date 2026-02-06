@@ -105,7 +105,7 @@ const Home: React.FC<{ setView: (v: AppView) => void, stats: any }> = ({ setView
         IDENTIF <span className="text-orange-600 italic">MUNEX</span><br/>
       </h1>
       <p className="text-2xl text-stone-500 max-w-2xl leading-relaxed font-medium italic">
-        "Base de données de munitions et mines pour entrainement à l'identification."
+        "Base de données de munitions et mines pour l'entrainement à l'identification. Toutes les données proviennent de sources ouvertes."
       </p>
     </div>
 
@@ -133,17 +133,16 @@ const Home: React.FC<{ setView: (v: AppView) => void, stats: any }> = ({ setView
         icon={<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M4 4.5A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5v-15z" />}
       />
       <ActionCard 
-        title="Centre de Drill" 
+        title="Centre de révisions" 
         desc="Entraînement à l'identification visuelle et technique."
         onClick={() => setView('revision')}
         icon={<path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4" />}
       />
     </div>
 
-    <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
+    <div className="grid grid-cols-2 md:grid-cols-2 gap-6">
       <StatBox label="Entrées DB" value={stats.total.toString()} />
       <StatBox label="Familles" value={stats.categories.toString()} />
-      <StatBox label="Indexation" value={stats.lastScan} />
     </div>
   </div>
 );
