@@ -867,7 +867,37 @@
   "fuze": "M60 ou NR 2112 ",
   "description": "Mine AC. Pourvue d'une poignée de transport en tissu sur le côté. Enveloppe en matière plastique de couleur vert armée ou sable. Version PRB-M3 A1 comportant deux alvéoles de piégeage (sur le côté et dessous) ",
   "warning": "",
-  "tags": ["AC", "AC Horizontale"]
+  "tags": ["AC", "AC Chenille"]
+  },
+  {
+  "id": "pt-mi-ba-3",
+  "name": "PTMIBA-3",
+  "localName": "",
+  "country": "Tchéquie",
+  "category": "Mines terrestres",
+  "subCategory": "AC Chenille",
+  "weight": "≈10.8 kg",
+  "dimensions": "≈ 321 mm ",
+  "fill": "Explosif brisant : 8 kg tolite",
+  "fuze": "RO-2, RO-7-II ou RO-7-III",
+  "description": "Mine AC tchèque. Pourvue d'une poignée de transport en plastique coulissante sur le dessous. Enveloppe en bakélite de couleur noire ou marron foncé. Pas d'alvéole de piégeage. Peut-être piégée par un dispositif anti-relevage RO-4.",
+  "warning": "Allumeur RO-7-III anti-dévissage, si autre allumeur que RO-2 : DSP",
+  "tags": ["AC", "AC Chenille"]
+  },
+  {
+  "id": "pt-mi-k",
+  "name": "PTMI-K",
+  "localName": "",
+  "country": "Tchéquie",
+  "category": "Mines terrestres",
+  "subCategory": "AC Chenille",
+  "weight": "≈7.8 kg",
+  "dimensions": "≈ 300 mm ",
+  "fill": "Explosif brisant : 5 kg tolite",
+  "fuze": "RO-5",
+  "description": "Mine AC tchèque. Pourvue d'une poignée de transport en métal latérale. Caratérisée par son plateau de pression grillagé et une enveloppe en métal couleur vert olive disposant de marquages noirs. Possibilité de piégeage par allumeur de piégeage à traction RO-3. ",
+  "warning": "",
+  "tags": ["AC", "AC Chenille"]
   },
   {
   "id": "tm-57",
@@ -882,7 +912,7 @@
   "fuze": "MVZ 57 ou MVSH 57 ",
   "description": "Mine AC. Pourvue d'une poignée de portage en métal sous la mine. Enveloppe en métal de couleur marron ou vert. Possède une alvéole latérale de piégeaga. Pose mécanique possible avec allumeur MVSH-57",
   "warning": "",
-  "tags": ["AC", "AC Horizontale"]
+  "tags": ["AC", "AC Chenille"]
   },
   {
   "id": "tm-62m",
@@ -897,7 +927,7 @@
   "fuze": "MVCH 62 ",
   "description": "Mine AC. Pourvue d'une poignée en tissu latérale amovible. Enveloppe métallique de couleur marron clair. Deux alvéoles de remplissage sous la mine. Désarmement possible avec une clé.",
   "warning": "L'allumeur MVCH 62 peut être piégé pour empêcher le désarmement de la mine : privilégier la DSP de la mine. Système anti-retournement possible également.",
-  "tags": ["AC", "AC Horizontale"]
+  "tags": ["AC", "AC Chenille"]
   },
   {
   "id": "tm-83",
@@ -912,7 +942,7 @@
   "fuze": "Double influence sismique  et infrarouge",
   "description": "Mine AC Horizontale. Posée manuellement en 2 versions : mode autonome (30 jours) ou commandée par l'intermédaire d'un déclencheur MZU.",
   "warning": "",
-  "tags": ["AC", "AC Horizontale"]
+  "tags": ["AC", "AC Chenille"]
   },
   {
   "id": "tmm-1",
