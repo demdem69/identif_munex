@@ -23,8 +23,8 @@ const Layout: React.FC<LayoutProps> = ({ children, activeView, setView }) => {
             </svg>
           </div>
           <div className="hidden sm:block">
-            <h1 className="text-xl font-black tracking-tighter text-stone-100 uppercase leading-none">EOD MASTER</h1>
-            <p className="text-[9px] text-orange-500 font-black tracking-widest uppercase">Tactical ID Guide v3.0</p>
+            <h1 className="text-xl font-black tracking-tighter text-stone-100 uppercase leading-none">IDENTIF MUNEX</h1>
+            <p className="text-[9px] text-orange-500 font-black tracking-widest uppercase">MUN DATABSAE</p>
           </div>
         </div>
 
