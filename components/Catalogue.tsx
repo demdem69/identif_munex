@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useEffect } from 'react';
+import React, { useState, useMemo, useEffect, useRef } from 'react';
 import { Ordnance } from '../types';
 
 interface CatalogueProps {
@@ -11,7 +11,7 @@ const Catalogue: React.FC<CatalogueProps> = ({ munitions }) => {
   const [activeSubCategory, setActiveSubCategory] = useState<string>('Tous');
   const [selectedItem, setSelectedItem] = useState<Ordnance | null>(null);
   const [currentImgIdx, setCurrentImgIdx] = useState(0);
-  const [savedScrollY, setSavedScrollY] = useState(0);
+  const savedScrollYRef = useRef(0);
 
   // Fermeture via touche Echap
   useEffect(() => {
@@ -49,7 +49,7 @@ const Catalogue: React.FC<CatalogueProps> = ({ munitions }) => {
     if (selectedItem) {
         // Sauvegarde la position pour la restaurer à la fermeture
         const y = window.scrollY || 0;
-        setSavedScrollY(y);
+        savedScrollYRef.current = y;
 
         // Bloque le scroll du body sur desktop et mobile
         document.body.style.overflow = 'hidden';
@@ -59,31 +59,25 @@ const Catalogue: React.FC<CatalogueProps> = ({ munitions }) => {
     } else {
         // Restore scroll position (évite de remonter en haut)
         const top = document.body.style.top;
-
         document.body.style.overflow = '';
         document.body.style.position = '';
         document.body.style.width = '';
         document.body.style.top = '';
 
         if (top) {
-          const y = Math.abs(parseInt(top, 10)) || savedScrollY;
+          const y = Math.abs(parseInt(top, 10)) || savedScrollYRef.current;
           window.scrollTo(0, y);
-        } else if (savedScrollY) {
-          window.scrollTo(0, savedScrollY);
+        } else if (savedScrollYRef.current) {
+          window.scrollTo(0, savedScrollYRef.current);
         }
     }
     return () => { 
-        const top = document.body.style.top;
-
+        // Cleanup uniquement: si le composant se démonte pendant l'overlay,
+        // on réactive le scroll sans forcer de position.
         document.body.style.overflow = '';
         document.body.style.position = '';
         document.body.style.width = '';
         document.body.style.top = '';
-
-        if (top) {
-          const y = Math.abs(parseInt(top, 10)) || 0;
-          window.scrollTo(0, y);
-        }
     };
   }, [selectedItem]);
 
