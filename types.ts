@@ -29,6 +29,11 @@ export interface CustomList {
   name: string;
   itemIds: string[];
   categoryNames: string[];
+  /**
+   * Sous-catégories sélectionnées sous forme de clé stable `category::subCategory`
+   * (évite les collisions si deux catégories partagent le même libellé de sous-catégorie).
+   */
+  subCategoryKeys: string[];
   createdAt: string;
 }
 

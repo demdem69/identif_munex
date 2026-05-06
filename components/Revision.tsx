@@ -1,36 +1,60 @@
-import React, { useState, useMemo, useEffect } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { Ordnance, CustomList } from '../types';
 
 interface RevisionProps {
   munitions: Ordnance[];
 }
 
-const Revision: React.FC<RevisionProps> = ({ munitions }) => {
+const Revision = ({ munitions }: RevisionProps) => {
   const [isConfiguring, setIsConfiguring] = useState(true);
   const [activeTab, setActiveTab] = useState<'categories' | 'custom'>('categories');
   
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
+  const [selectedSubCategoryKeys, setSelectedSubCategoryKeys] = useState<string[]>([]);
   const [selectedItemIds, setSelectedItemIds] = useState<string[]>([]);
   const [configSearch, setConfigSearch] = useState('');
   const [listName, setListName] = useState('');
   
-  const [savedLists, setSavedLists] = useState<CustomList[]>([]);
+  const [savedLists, setSavedLists] = useState([] as CustomList[]);
   
-  const [sessionQueue, setSessionQueue] = useState<Ordnance[]>([]);
+  const [sessionQueue, setSessionQueue] = useState([] as Ordnance[]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isFlipped, setIsFlipped] = useState(false);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [randomImgIdx, setRandomImgIdx] = useState(0);
+  const [backImgIdx, setBackImgIdx] = useState(0);
+
+  const subCatKey = (category: string, subCategory: string) => `${category}::${subCategory}`;
 
   const dynamicCategories = useMemo(() => {
     return Array.from(new Set(munitions.map(m => m.category))).sort();
   }, [munitions]);
 
+  const availableSubCategories = useMemo(() => {
+    if (selectedCategories.length === 0) return [];
+    const keys = new Set<string>();
+    for (const m of munitions) {
+      if (!selectedCategories.includes(m.category)) continue;
+      if (!m.subCategory) continue;
+      keys.add(subCatKey(m.category, m.subCategory));
+    }
+    return Array.from(keys).sort((a, b) => a.localeCompare(b, 'fr'));
+  }, [munitions, selectedCategories]);
+
   useEffect(() => {
     const stored = localStorage.getItem('eod_custom_lists');
     if (stored) {
       try {
-        setSavedLists(JSON.parse(stored));
+        const parsed = JSON.parse(stored);
+        const normalized: CustomList[] = Array.isArray(parsed)
+          ? parsed.map((l: any) => ({
+              ...l,
+              itemIds: Array.isArray(l?.itemIds) ? l.itemIds : [],
+              categoryNames: Array.isArray(l?.categoryNames) ? l.categoryNames : [],
+              subCategoryKeys: Array.isArray(l?.subCategoryKeys) ? l.subCategoryKeys : [],
+            }))
+          : [];
+        setSavedLists(normalized);
       } catch (e) {
         console.error("Erreur chargement listes", e);
       }
@@ -49,6 +73,10 @@ const Revision: React.FC<RevisionProps> = ({ munitions }) => {
     }
   }, [currentIndex, sessionQueue]);
 
+  useEffect(() => {
+    setBackImgIdx(randomImgIdx);
+  }, [randomImgIdx, currentIndex, sessionQueue]);
+
   const saveListsToStorage = (lists: CustomList[]) => {
     localStorage.setItem('eod_custom_lists', JSON.stringify(lists));
     setSavedLists(lists);
@@ -65,8 +93,21 @@ const Revision: React.FC<RevisionProps> = ({ munitions }) => {
   }, [configSearch, munitions]);
 
   const toggleCategory = (cat: string) => {
-    setSelectedCategories(prev => 
-      prev.includes(cat) ? prev.filter(c => c !== cat) : [...prev, cat]
+    setSelectedCategories(prev => {
+      const next = prev.includes(cat) ? prev.filter(c => c !== cat) : [...prev, cat];
+      setSelectedSubCategoryKeys(subPrev =>
+        subPrev.filter(k => {
+          const [kCat] = k.split('::');
+          return next.includes(kCat);
+        })
+      );
+      return next;
+    });
+  };
+
+  const toggleSubCategoryKey = (key: string) => {
+    setSelectedSubCategoryKeys(prev =>
+      prev.includes(key) ? prev.filter(k => k !== key) : [...prev, key]
     );
   };
 
@@ -78,7 +119,7 @@ const Revision: React.FC<RevisionProps> = ({ munitions }) => {
 
   const saveCurrentList = () => {
     if (!listName.trim()) return alert("Veuillez donner un nom à votre liste.");
-    if (selectedCategories.length === 0 && selectedItemIds.length === 0) {
+    if (selectedCategories.length === 0 && selectedSubCategoryKeys.length === 0 && selectedItemIds.length === 0) {
       return alert("Sélection vide.");
     }
 
@@ -87,6 +128,7 @@ const Revision: React.FC<RevisionProps> = ({ munitions }) => {
       name: listName,
       itemIds: selectedItemIds,
       categoryNames: selectedCategories,
+      subCategoryKeys: selectedSubCategoryKeys,
       createdAt: new Date().toISOString()
     };
 
@@ -104,13 +146,15 @@ const Revision: React.FC<RevisionProps> = ({ munitions }) => {
     
     if (list) {
       const catItems = munitions.filter(m => list.categoryNames.includes(m.category));
+      const subCatItems = munitions.filter(m => list.subCategoryKeys.includes(subCatKey(m.category, m.subCategory)));
       const specificItems = munitions.filter(m => list.itemIds.includes(m.id));
-      const combined = [...catItems, ...specificItems];
+      const combined = [...catItems, ...subCatItems, ...specificItems];
       filtered = Array.from(new Map(combined.map(item => [item.id, item])).values());
     } else {
       const catItems = munitions.filter(m => selectedCategories.includes(m.category));
+      const subCatItems = munitions.filter(m => selectedSubCategoryKeys.includes(subCatKey(m.category, m.subCategory)));
       const specificItems = munitions.filter(m => selectedItemIds.includes(m.id));
-      const combined = [...catItems, ...specificItems];
+      const combined = [...catItems, ...subCatItems, ...specificItems];
       filtered = Array.from(new Map(combined.map(item => [item.id, item])).values());
     }
 
@@ -129,6 +173,8 @@ const Revision: React.FC<RevisionProps> = ({ munitions }) => {
    */
   const handleRating = async (rating: 'easy' | 'hard') => {
     if (isTransitioning) return;
+    const activeId = sessionQueue[currentIndex]?.id;
+    if (!activeId) return;
     setIsTransitioning(true);
 
     // 1. On retourne la carte vers le recto (image)
@@ -137,12 +183,23 @@ const Revision: React.FC<RevisionProps> = ({ munitions }) => {
     // 2. On attend la fin physique de l'animation de pivotement (350ms)
     await new Promise(resolve => setTimeout(resolve, 350));
 
-    // 3. On change la munition
-    if (currentIndex < sessionQueue.length - 1) {
-      setCurrentIndex(prev => prev + 1);
+    // 3. Progression: si échec, on remet la carte plus tard jusqu'à réussite
+    if (rating === 'hard') {
+      setSessionQueue(prev => {
+        const idx = prev.findIndex(i => i.id === activeId);
+        if (idx === -1) return prev;
+        const item = prev[idx];
+        const next = [...prev.slice(0, idx), ...prev.slice(idx + 1), item];
+        return next;
+      });
+      // On garde le même index: la prochaine carte "glisse" à cette position.
     } else {
-      alert("Cycle de révision terminé.");
-      setIsConfiguring(true);
+      if (currentIndex < sessionQueue.length - 1) {
+        setCurrentIndex(prev => prev + 1);
+      } else {
+        alert("Cycle de révision terminé.");
+        setIsConfiguring(true);
+      }
     }
     
     setIsTransitioning(false);
@@ -196,6 +253,36 @@ const Revision: React.FC<RevisionProps> = ({ munitions }) => {
               </section>
 
               <section className="space-y-4">
+                <h3 className="text-stone-400 text-[10px] font-black uppercase tracking-widest flex items-center gap-2">Sous-catégories</h3>
+                {selectedCategories.length === 0 ? (
+                  <div className="text-[10px] text-stone-600 font-bold uppercase tracking-widest bg-stone-900 border border-stone-800 rounded-2xl p-5">
+                    Sélectionnez d’abord une catégorie pour afficher ses sous-catégories.
+                  </div>
+                ) : (
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    {availableSubCategories.map(key => {
+                      const [, sub] = key.split('::');
+                      const active = selectedSubCategoryKeys.includes(key);
+                      return (
+                        <button
+                          key={key}
+                          onClick={() => toggleSubCategoryKey(key)}
+                          className={`px-5 py-4 rounded-2xl border text-left transition-all flex items-center justify-between group ${
+                            active
+                              ? 'bg-orange-600 border-orange-500 text-white shadow-xl'
+                              : 'bg-stone-900 border-stone-800 text-stone-300 hover:border-stone-700'
+                          }`}
+                          title={key}
+                        >
+                          <span className="text-[10px] font-black uppercase tracking-widest">{sub}</span>
+                        </button>
+                      );
+                    })}
+                  </div>
+                )}
+              </section>
+
+              <section className="space-y-4">
                 <h3 className="text-stone-400 text-[10px] font-black uppercase tracking-widest">Recherche spécifique</h3>
                 <input 
                   type="text"
@@ -245,7 +332,7 @@ const Revision: React.FC<RevisionProps> = ({ munitions }) => {
               <div className="pt-8 border-t border-stone-800 text-center space-y-4">
                 <button 
                   onClick={() => startSession()}
-                  disabled={selectedCategories.length === 0 && selectedItemIds.length === 0}
+                  disabled={selectedCategories.length === 0 && selectedSubCategoryKeys.length === 0 && selectedItemIds.length === 0}
                   className="w-full py-6 bg-orange-600 hover:bg-orange-500 text-white font-black rounded-2xl shadow-xl transition-all disabled:opacity-20 uppercase tracking-[0.2em] text-[11px]"
                 >
                   Lancer le Drill
@@ -272,6 +359,11 @@ const Revision: React.FC<RevisionProps> = ({ munitions }) => {
                     </div>
                     <div className="flex-1 flex flex-wrap gap-2 mb-8">
                        {list.categoryNames.map(c => <span key={c} className="text-[8px] font-black text-stone-500 uppercase px-3 py-1 bg-stone-950 rounded-full border border-stone-800">{c}</span>)}
+                      {list.subCategoryKeys?.length > 0 && (
+                        <span className="text-[8px] font-black text-stone-400 uppercase px-3 py-1 bg-stone-950 rounded-full border border-stone-800">
+                          {list.subCategoryKeys.length} SOUS-CAT
+                        </span>
+                      )}
                        {list.itemIds.length > 0 && <span className="text-[8px] font-black text-orange-600 uppercase px-3 py-1 bg-orange-600/5 rounded-full border border-orange-600/10">{list.itemIds.length} ITEMS</span>}
                     </div>
                     <button 
@@ -290,6 +382,21 @@ const Revision: React.FC<RevisionProps> = ({ munitions }) => {
   }
 
   const activeItem = sessionQueue[currentIndex];
+  const backImages = activeItem?.imageUrls || [];
+  const backHasImages = backImages.length > 0;
+  const safeBackImgIdx = backHasImages ? Math.min(backImgIdx, backImages.length - 1) : 0;
+
+  const nextBackImg = (e: { stopPropagation: () => void }) => {
+    e.stopPropagation();
+    if (!backHasImages) return;
+    setBackImgIdx(prev => (prev + 1) % backImages.length);
+  };
+
+  const prevBackImg = (e: { stopPropagation: () => void }) => {
+    e.stopPropagation();
+    if (!backHasImages) return;
+    setBackImgIdx(prev => (prev - 1 + backImages.length) % backImages.length);
+  };
 
   return (
     <div className="max-w-2xl mx-auto py-8 sm:py-12 flex flex-col min-h-[600px] animate-in">
@@ -338,6 +445,68 @@ const Revision: React.FC<RevisionProps> = ({ munitions }) => {
             </div>
             
             <div className="flex-1 overflow-y-auto space-y-6 sm:space-y-8 pr-2 custom-scrollbar">
+               {/* Galerie: apprendre l'apparence (toutes les photos) */}
+               <div className="bg-stone-950/40 border border-stone-800 rounded-2xl overflow-hidden">
+                 <div className="relative aspect-video bg-black flex items-center justify-center">
+                   {backHasImages ? (
+                     <img
+                       src={backImages[safeBackImgIdx]}
+                       className="w-full h-full object-contain p-4"
+                     />
+                   ) : (
+                     <svg viewBox="0 0 24 24" className="w-16 h-16 text-stone-800" fill="none" stroke="currentColor" strokeWidth="1">
+                       <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                     </svg>
+                   )}
+
+                   {backImages.length > 1 && (
+                     <>
+                       <button
+                         onClick={prevBackImg}
+                         className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 bg-stone-900/80 border border-stone-800 hover:bg-orange-600 rounded-full flex items-center justify-center text-white transition-all shadow-2xl backdrop-blur-md"
+                         title="Photo précédente"
+                       >
+                         <svg viewBox="0 0 24 24" className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="3">
+                           <path d="M15 18l-6-6 6-6" />
+                         </svg>
+                       </button>
+                       <button
+                         onClick={nextBackImg}
+                         className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 bg-stone-900/80 border border-stone-800 hover:bg-orange-600 rounded-full flex items-center justify-center text-white transition-all shadow-2xl backdrop-blur-md"
+                         title="Photo suivante"
+                       >
+                         <svg viewBox="0 0 24 24" className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="3">
+                           <path d="M9 18l6-6-6-6" />
+                         </svg>
+                       </button>
+                       <div className="absolute bottom-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-black/60 border border-stone-800 text-[9px] font-black uppercase tracking-widest text-stone-200">
+                         {safeBackImgIdx + 1}/{backImages.length}
+                       </div>
+                     </>
+                   )}
+                 </div>
+
+                 {backImages.length > 1 && (
+                   <div className="p-3 border-t border-stone-800 flex gap-2 overflow-x-auto">
+                     {backImages.map((url, i) => (
+                       <button
+                         key={`${url}-${i}`}
+                         onClick={(e) => {
+                           e.stopPropagation();
+                           setBackImgIdx(i);
+                         }}
+                         className={`w-16 h-12 rounded-lg border overflow-hidden shrink-0 transition-all ${
+                           i === safeBackImgIdx ? 'border-orange-600' : 'border-stone-800 hover:border-stone-700'
+                         }`}
+                         title={`Photo ${i + 1}`}
+                       >
+                         <img src={url} className="w-full h-full object-cover" />
+                       </button>
+                     ))}
+                   </div>
+                 )}
+               </div>
+
                <div className="bg-stone-950/60 p-5 sm:p-6 rounded-2xl border border-stone-800 text-stone-300 italic text-sm sm:text-base leading-relaxed">
                  "{activeItem.description}"
                </div>
