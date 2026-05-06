@@ -11,6 +11,7 @@ const Catalogue: React.FC<CatalogueProps> = ({ munitions }) => {
   const [activeSubCategory, setActiveSubCategory] = useState<string>('Tous');
   const [selectedItem, setSelectedItem] = useState<Ordnance | null>(null);
   const [currentImgIdx, setCurrentImgIdx] = useState(0);
+  const [savedScrollY, setSavedScrollY] = useState(0);
 
   // Fermeture via touche Echap
   useEffect(() => {
@@ -46,19 +47,43 @@ const Catalogue: React.FC<CatalogueProps> = ({ munitions }) => {
   useEffect(() => {
     setCurrentImgIdx(0);
     if (selectedItem) {
+        // Sauvegarde la position pour la restaurer à la fermeture
+        const y = window.scrollY || 0;
+        setSavedScrollY(y);
+
         // Bloque le scroll du body sur desktop et mobile
         document.body.style.overflow = 'hidden';
         document.body.style.position = 'fixed';
         document.body.style.width = '100%';
+        document.body.style.top = `-${y}px`;
     } else {
+        // Restore scroll position (évite de remonter en haut)
+        const top = document.body.style.top;
+
         document.body.style.overflow = '';
         document.body.style.position = '';
         document.body.style.width = '';
+        document.body.style.top = '';
+
+        if (top) {
+          const y = Math.abs(parseInt(top, 10)) || savedScrollY;
+          window.scrollTo(0, y);
+        } else if (savedScrollY) {
+          window.scrollTo(0, savedScrollY);
+        }
     }
     return () => { 
+        const top = document.body.style.top;
+
         document.body.style.overflow = '';
         document.body.style.position = '';
         document.body.style.width = '';
+        document.body.style.top = '';
+
+        if (top) {
+          const y = Math.abs(parseInt(top, 10)) || 0;
+          window.scrollTo(0, y);
+        }
     };
   }, [selectedItem]);
 
